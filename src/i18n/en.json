@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "inicio": "Home",
+    "galeria": "Gallery",
+    "visita": "Visit",
+    "entradas": "Tickets"
+  },
+  "hero": {
+    "titulo": "Audio Guide",
+    "lugar": "House Over the Stream",
+    "texto": "We invite you to approach the listening points and play the corresponding audio. Please don't use your device's speaker — listen with headphones, or as if you were on a phone call.",
+    "cta_galeria": "View gallery",
+    "cta_entradas": "Buy ticket"
+  },
+  "galeria": {
+    "titulo": "Gallery",
+    "subtitulo": "Twelve pieces, each with its own audio narration."
+  }
+}

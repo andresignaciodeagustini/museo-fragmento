@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "galeria": "Galería",
+    "visita": "Visita",
+    "entradas": "Entradas"
+  },
+  "hero": {
+    "titulo": "Audio Guía",
+    "lugar": "Casa Sobre el Arroyo",
+    "texto": "Los invitamos a acercarse a los puntos de escucha y escuchar el audio correspondiente, le pedimos por favor que no utilice el altavoz de su dispositivo, sino que nos escuchen con sus auriculares o como si fuera una llamada.",
+    "cta_galeria": "Ver galería",
+    "cta_entradas": "Comprar entrada"
+  },
+  "galeria": {
+    "titulo": "Galería",
+    "subtitulo": "Doce piezas, cada una con su propia narración en audio."
+  }
+}
