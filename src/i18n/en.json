@@ -1,9 +1,17 @@
 {
   "nav": {
-    "inicio": "Home",
+    "audioGuia": "Audio guide",
     "galeria": "Gallery",
-    "visita": "Visit",
-    "entradas": "Tickets"
+    "casaArroyo": "History",
+    "quienesSomos": "About us",
+    "informacion": "Information",
+    "tienda": "Shop",
+    "donar": "Donate",
+    "cronologia": "Timeline",
+    "amancio": "Amancio Williams",
+    "herman": "Herman Clinckspoor",
+    "delfina": "Delfina Gálvez Bunge",
+    "alberto": "Alberto Williams"
   },
   "hero": {
     "titulo": "Audio Guide",
@@ -11,6 +19,11 @@
     "texto": "We invite you to approach the listening points and play the corresponding audio. Please don't use your device's speaker — listen with headphones, or as if you were on a phone call.",
     "cta_galeria": "View gallery",
     "cta_entradas": "Donations"
+  },
+  "bienvenida": {
+    "titulo": "Welcome to the House Over the Stream",
+    "texto": "Explore the space and discover its history through the audio guides, listening to each point with your headphones.",
+    "boton": "Access the audio guides"
   },
   "galeria": {
     "titulo": "Gallery",

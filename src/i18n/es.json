@@ -1,9 +1,17 @@
 {
   "nav": {
-    "inicio": "Inicio",
+    "audioGuia": "Audio guía",
     "galeria": "Galería",
-    "visita": "Visita",
-    "entradas": "Entradas"
+    "casaArroyo": "Historia",
+    "quienesSomos": "Quiénes somos",
+    "informacion": "Información",
+    "tienda": "Tienda",
+    "donar": "Donar",
+    "cronologia": "Cronología",
+    "amancio": "Amancio Williams",
+    "herman": "Herman Clinckspoor",
+    "delfina": "Delfina Gálvez Bunge",
+    "alberto": "Alberto Williams"
   },
   "hero": {
     "titulo": "Audio Guía",
@@ -11,6 +19,11 @@
     "texto": "Los invitamos a acercarse a los puntos de escucha y escuchar el audio correspondiente, le pedimos por favor que no utilice el altavoz de su dispositivo, sino que nos escuchen con sus auriculares o como si fuera una llamada.",
     "cta_galeria": "Ver galería",
     "cta_entradas": "Donaciones"
+  },
+  "bienvenida": {
+    "titulo": "Bienvenidos a la Casa Sobre el Arroyo",
+    "texto": "Recorran el espacio y descubran su historia a través de las audio guías, escuchando cada punto con sus auriculares.",
+    "boton": "Acceder a las audio guías"
   },
   "galeria": {
     "titulo": "Galería",

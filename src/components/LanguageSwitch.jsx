@@ -9,9 +9,7 @@ export default function LanguageSwitch() {
       onClick={toggleLang}
       aria-label="Cambiar idioma / Change language"
     >
-      <span className={lang === "es" ? "is-active" : ""}>ES</span>
-      <span className="divider">/</span>
-      <span className={lang === "en" ? "is-active" : ""}>EN</span>
+      {lang === "es" ? "English" : "Español"}
     </button>
   );
 }

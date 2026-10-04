@@ -4,6 +4,10 @@ import Home from "./pages/Home.jsx";
 import Galeria from "./pages/Galeria.jsx";
 import Visita from "./pages/Visita.jsx";
 import Entradas from "./pages/Entradas.jsx";
+import QuienesSomos from "./pages/QuienesSomos.jsx";
+import Historia from "./pages/Historia.jsx";
+import Cronologia from "./pages/Cronologia.jsx";
+import Persona from "./pages/Persona.jsx";
 
 export default function App() {
   return (
@@ -17,6 +21,10 @@ export default function App() {
           <Route path="/galeria" element={<Galeria />} />
           <Route path="/visita" element={<Visita />} />
           <Route path="/entradas" element={<Entradas />} />
+          <Route path="/quienes-somos" element={<QuienesSomos />} />
+          <Route path="/historia" element={<Historia />} />
+          <Route path="/historia/cronologia" element={<Cronologia />} />
+          <Route path="/historia/:slug" element={<Persona />} />
         </Routes>
       </main>
     </>
