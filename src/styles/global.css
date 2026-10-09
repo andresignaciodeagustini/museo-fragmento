@@ -4,7 +4,14 @@
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, sans-serif; color: #1c1d1f; }
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #1c1d1f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+button, input, textarea, select { font-family: inherit; }
 a { color: inherit; }
 a, button { cursor: pointer; }
 img { max-width: 100%; display: block; }
@@ -504,10 +511,9 @@ img { max-width: 100%; display: block; }
 }
 
 .home-wrap {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  max-width: none;
+  margin: 0 5vw;
+  padding: 0;
 }
 
 /* ---------- Franja de información ---------- */
