@@ -2,9 +2,13 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext.jsx";
 import personas from "../data/personas.js";
+import Carousel from "../components/Carousel.jsx";
 
-// Orden en que aparecen las personalidades en el Home
-const ORDEN = ["amancio", "delfina", "alberto", "herman"];
+// TODO: reemplazar por la página real de "Sumate a la AACASA".
+const SUMATE_PATH = "/quienes-somos";
+
+// Orden en que aparecen las personalidades dentro de "La Casa"
+const ORDEN = ["alberto", "amancio", "delfina", "herman"];
 const FOTOS = {
   amancio: "/assets/home/amancio.jpg",
   delfina: "/assets/home/delfina.jfif",
@@ -21,18 +25,74 @@ function posicion(p) {
 }
 
 const icono = {
-  width: 22,
-  height: 22,
+  width: 36,
+  height: 36,
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
-  strokeWidth: 1.8,
+  strokeWidth: 1.5,
   strokeLinecap: "round",
   strokeLinejoin: "round",
+  "aria-hidden": true,
 };
 
+function PeopleIcon() {
+  return (
+    <svg {...icono}>
+      <circle cx="12" cy="6.5" r="2.8" />
+      <path d="M7.5 15.5c0-2.6 2-4.2 4.5-4.2s4.5 1.6 4.5 4.2" />
+      <circle cx="5" cy="10.5" r="2.2" />
+      <path d="M1.5 18c0-2 1.5-3.4 3.5-3.4" />
+      <circle cx="19" cy="10.5" r="2.2" />
+      <path d="M22.5 18c0-2-1.5-3.4-3.5-3.4" />
+      <path d="M5 18.5h14" />
+    </svg>
+  );
+}
+
+// Botón circular blanco con flecha negra
+function CircleArrow({ size = 32 }) {
+  return (
+    <span className="circle-arrow" style={{ width: size, height: size }}>
+      <svg
+        viewBox="0 0 24 24"
+        width={size * 0.5}
+        height={size * 0.5}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M5 12h14" />
+        <path d="M13 6l6 6-6 6" />
+      </svg>
+    </span>
+  );
+}
+
+// Tarjeta de los carruseles: foto arriba y texto + flecha abajo
+function Tile({ to, img, title, sub, text }) {
+  return (
+    <Link to={to} className="tile">
+      <div className="tile__img">
+        {img && <img src={img} alt="" />}
+      </div>
+      <div className="tile__body">
+        <div className="tile__text">
+          <strong>{title}</strong>
+          {sub && <span>{sub}</span>}
+          {text && <p>{text}</p>}
+        </div>
+        <CircleArrow size={text ? 28 : 32} />
+      </div>
+    </Link>
+  );
+}
+
 export default function Home() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(true);
@@ -130,113 +190,86 @@ export default function Home() {
 
       {/* ---------- Franja de información ---------- */}
       <section className="home-wrap home-info">
-        <h2 className="home-info__title">
-          Descubre la Casa
-          <br />
-          sobre el Arroyo
-        </h2>
-        <ul className="home-info__list">
-          <li>
-            <svg {...icono}>
-              <path d="M3 9a2 2 0 0 0 0 6v3h18v-3a2 2 0 0 1 0-6V6H3z" />
-              <line x1="13" y1="6" x2="13" y2="18" strokeDasharray="2 3" />
-            </svg>
-            Entrada gratuita
-          </li>
-          <li>
-            <svg {...icono}>
-              <rect x="3" y="5" width="18" height="16" rx="2" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-              <line x1="8" y1="3" x2="8" y2="7" />
-              <line x1="16" y1="3" x2="16" y2="7" />
-            </svg>
-            Parque: lunes a viernes
-          </li>
-          <li>
-            <svg {...icono}>
-              <circle cx="12" cy="12" r="9" />
-              <polyline points="12 7 12 12 15 14" />
-            </svg>
-            De 8:30 a 14:30 h
-          </li>
-        </ul>
+        <h2 className="home-info__title">{t.info.titulo}</h2>
+        <div className="home-info__actions">
+          <Link to={SUMATE_PATH} className="home-info__action">
+            <PeopleIcon />
+            <span className="home-info__label">
+              {t.info.sumate}
+              <span aria-hidden="true">→</span>
+            </span>
+          </Link>
+        </div>
       </section>
 
       {/* ---------- Audioguías ---------- */}
       <section className="home-wrap home-block">
-        <h2 className="home-block__title">Audioguías</h2>
-        <Link to="/galeria" className="home-card home-card--audio">
-          <div className="home-card__text">
-            <h3>
-              Haz clic para escuchar
-              <br />
-              las audioguías
-            </h3>
+        <h2 className="home-block__title">{t.audioguias.titulo}</h2>
+        <Link to="/galeria" className="audio-card">
+          <div className="audio-card__text">
+            <p>{t.audioguias.texto}</p>
+            <CircleArrow size={34} />
           </div>
           <img src="/assets/home/audioguias.png" alt="" />
         </Link>
       </section>
 
-      {/* ---------- Historia y galería de fotos ---------- */}
+      {/* ---------- La Casa ---------- */}
       <section className="home-wrap home-block">
-        <h2 className="home-block__title">Historia y galería de fotos</h2>
-        <div className="home-grid-2">
-          <Link to="/historia/cronologia" className="home-card">
-            <div className="home-card__text">
-              <h3>
-                Cronología
-                <br />
-                de la Casa
-                <br />
-                sobre el Arroyo
-              </h3>
-              <div className="home-card__foot">
-                <div>
-                  <strong>Historia de la casa</strong>
-                  <p>Recorre los momentos clave de su historia</p>
-                </div>
-                <span className="home-card__btn">Abrir</span>
-              </div>
-            </div>
-            <img src="/assets/home/cronologia.png" alt="" />
-          </Link>
-
-          <Link to="/galeria" className="home-card">
-            <div className="home-card__text">
-              <h3>
-                Galería
-                <br />
-                La casa en
-                <br />
-                imágenes
-              </h3>
-              <div className="home-card__foot">
-                <div>
-                  <strong>Galería de fotos</strong>
-                  <p>Explora su arquitectura, sus interiores y el parque</p>
-                </div>
-                <span className="home-card__btn">Abrir</span>
-              </div>
-            </div>
-            <img src="/assets/home/galeriacasaimagenes.jpg" alt="" />
-          </Link>
-        </div>
+        <h2 className="home-block__title">{t.casa.titulo}</h2>
+        <Carousel label={t.casa.titulo}>
+          <Tile
+            to="/historia/cronologia"
+            img="/assets/home/cronologia.png"
+            title={t.casa.cronologia.titulo}
+            sub={t.casa.cronologia.sub}
+          />
+          <Tile
+            to="/galeria"
+            img="/assets/home/galeriacasaimagenes.jpg"
+            title={t.casa.galeria.titulo}
+            sub={t.casa.galeria.sub}
+          />
+          {lista.map((p) => (
+            <Tile
+              key={p.slug}
+              to={`/historia/${p.slug}`}
+              img={fotoDe(p)}
+              title={p.nombre}
+            />
+          ))}
+        </Carousel>
       </section>
 
-      {/* ---------- Personalidades ---------- */}
+      {/* ---------- La Asociación ---------- */}
       <section className="home-wrap home-block home-block--last">
-        <h2 className="home-block__title">Personalidades</h2>
-        <div className="home-grid-4">
-          {lista.map((p) => (
-            <Link key={p.slug} to={`/historia/${p.slug}`} className="persona-card">
-              {fotoDe(p) && <img src={fotoDe(p)} alt={p.nombre} />}
-              <div className="persona-card__body">
-                <h3>{p.nombre}</h3>
-                <p>{p.texto?.[lang]}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <h2 className="home-block__title">{t.asociacion.titulo}</h2>
+        <Carousel label={t.asociacion.titulo}>
+          <Tile
+            to="/"
+            img="/assets/centro.jpg"
+            title={t.asociacion.centro.titulo}
+            text={t.asociacion.centro.texto}
+          />
+          <Tile
+            to="/inmersiva"
+            img="/assets/inmersiva.JPG"
+            title={t.asociacion.inmersiva.titulo}
+            text={t.asociacion.inmersiva.texto}
+          />
+          <Tile
+            to="/agenda"
+            img="/assets/agenda.jpg"
+            title={t.asociacion.agenda.titulo}
+            text={t.asociacion.agenda.texto}
+          />
+          <Tile
+            to="/software"
+            img="/assets/software.png"
+            title={t.asociacion.software.titulo}
+            text={t.asociacion.software.texto}
+          />
+        </Carousel>
       </section>
     </div>
   );

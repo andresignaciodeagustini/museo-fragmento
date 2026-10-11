@@ -11,7 +11,13 @@
     "amancio": "Amancio Williams",
     "herman": "Herman Clinckspoor",
     "delfina": "Delfina Gálvez Bunge",
-    "alberto": "Alberto Williams"
+    "alberto": "Alberto Williams",
+    "asociacion": "The Association",
+    "laCasa": "The House",
+    "centro": "Interpretation Center",
+    "inmersiva": "AACasa Immersive",
+    "agenda": "Events",
+    "contacto": "Contact"
   },
   "hero": {
     "titulo": "Audio Guide",
@@ -22,8 +28,47 @@
   },
   "bienvenida": {
     "titulo": "Welcome to the House Over the Stream",
-    "texto": "Explore the space and discover its history through the audio guides, listening to each point with your headphones.",
-    "boton": "Access the audio guides"
+    "texto": "A unique architectural, natural and cultural heritage, open to the community.",
+    "boton": "Discover more."
+  },
+  "info": {
+    "titulo": "Discover the Museum\nHouse Over the Stream",
+    "instagram": "Instagram AACASA",
+    "sumate": "Join AACASA"
+  },
+  "audioguias": {
+    "titulo": "Audio guides",
+    "texto": "Click to listen to the audio guides"
+  },
+  "casa": {
+    "titulo": "The House",
+    "cronologia": {
+      "titulo": "Timeline",
+      "sub": "of the House Over the Stream"
+    },
+    "galeria": {
+      "titulo": "Gallery",
+      "sub": "The house in images"
+    }
+  },
+  "asociacion": {
+    "titulo": "The Association",
+    "centro": {
+      "titulo": "Interpretation Center",
+      "texto": "Innovation, training and ties with the community."
+    },
+    "inmersiva": {
+      "titulo": "AACASA Immersive",
+      "texto": "Digital experience and accessibility for everyone."
+    },
+    "agenda": {
+      "titulo": "Events",
+      "texto": "Upcoming events, news and current affairs."
+    },
+    "software": {
+      "titulo": "Software",
+      "texto": "Digital tools to explore the house remotely."
+    }
   },
   "galeria": {
     "titulo": "Gallery",

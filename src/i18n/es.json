@@ -11,7 +11,13 @@
     "amancio": "Amancio Williams",
     "herman": "Herman Clinckspoor",
     "delfina": "Delfina Gálvez Bunge",
-    "alberto": "Alberto Williams"
+    "alberto": "Alberto Williams",
+    "asociacion": "La Asociación",
+    "laCasa": "La Casa",
+    "centro": "Centro de Interpretación",
+    "inmersiva": "AACasa Inmersiva",
+    "agenda": "Agenda",
+    "contacto": "Contacto"
   },
   "hero": {
     "titulo": "Audio Guía",
@@ -22,8 +28,47 @@
   },
   "bienvenida": {
     "titulo": "Bienvenidos a la Casa Sobre el Arroyo",
-    "texto": "Recorran el espacio y descubran su historia a través de las audio guías, escuchando cada punto con sus auriculares.",
-    "boton": "Acceder a las audio guías"
+    "texto": "Un patrimonio arquitectónico, natural y cultural único, abierto a la comunidad.",
+    "boton": "Descubrí más."
+  },
+  "info": {
+    "titulo": "Descubrí el Museo\nCasa sobre el Arroyo",
+    "instagram": "Instagram AACASA",
+    "sumate": "Sumate a la AACASA"
+  },
+  "audioguias": {
+    "titulo": "Audioguías",
+    "texto": "Hacé clic para escuchar las audioguías"
+  },
+  "casa": {
+    "titulo": "La Casa",
+    "cronologia": {
+      "titulo": "Cronología",
+      "sub": "de la Casa sobre el Arroyo"
+    },
+    "galeria": {
+      "titulo": "Galería",
+      "sub": "La casa en imágenes"
+    }
+  },
+  "asociacion": {
+    "titulo": "La Asociación",
+    "centro": {
+      "titulo": "Centro de Interpretación",
+      "texto": "Innovación, formación y vínculo con la comunidad."
+    },
+    "inmersiva": {
+      "titulo": "AACASA Inmersiva",
+      "texto": "Experiencia digital y accesibilidad para todos."
+    },
+    "agenda": {
+      "titulo": "Agenda",
+      "texto": "Próximos eventos, novedades y actualidad."
+    },
+    "software": {
+      "titulo": "Software",
+      "texto": "Herramientas digitales para explorar la casa a distancia."
+    }
   },
   "galeria": {
     "titulo": "Galería",
