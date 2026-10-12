@@ -208,7 +208,23 @@ export default function Home() {
         <Link to="/inmersiva/audioguias" className="audio-card">
           <div className="audio-card__text">
             <p>{t.audioguias.texto}</p>
-            <CircleArrow size={34} />
+            <span className="audio-card__btn">
+              <span>{t.audioguias.boton}</span>
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14" />
+                <path d="M13 6l6 6-6 6" />
+              </svg>
+            </span>
           </div>
           <img src="/assets/home/audioguias.png" alt="" />
         </Link>
@@ -249,6 +265,7 @@ export default function Home() {
             to="/centro/laboratorio"
             img="/assets/centro.jpg"
             title={t.asociacion.centro.titulo}
+            sub={t.asociacion.centro.sub}
             text={t.asociacion.centro.texto}
           />
           <Tile

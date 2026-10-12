@@ -56,7 +56,8 @@
   },
   "audioguias": {
     "titulo": "Audio guides",
-    "texto": "Click to listen to the audio guides"
+    "texto": "Explore the house with audio guides",
+    "boton": "Listen to the audio guides"
   },
   "casa": {
     "titulo": "The House",

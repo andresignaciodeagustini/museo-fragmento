@@ -56,7 +56,8 @@
   },
   "audioguias": {
     "titulo": "Audioguías",
-    "texto": "Hacé clic para escuchar las audioguías"
+    "texto": "Recorré la casa con audioguías",
+    "boton": "Escuchar audioguías"
   },
   "casa": {
     "titulo": "La Casa",

@@ -2,7 +2,7 @@ import { useLanguage } from "../context/LanguageContext.jsx";
 import piezas from "../data/galeria.js";
 import PiezaCard from "../components/PiezaCard.jsx";
 
-// Imagen del plano (ponerla en public/assets/mapa-audioguias.png)
+// Imagen del plano (public/assets/mapa-audioguias.jpg)
 const MAPA_IMG = "/assets/mapa-audioguias.png";
 
 // Posición de cada punto sobre el plano, en % (x = izquierda, y = arriba).
@@ -71,30 +71,30 @@ export default function Galeria() {
     <section className="audioguias">
       {/* ---------- Mapa ---------- */}
       <div className="audioguias__map">
-        <img
-          src={MAPA_IMG}
-          alt=""
-          className="audioguias__map-img"
-          onError={(e) => (e.currentTarget.style.display = "none")}
-        />
+        {/* Escenario con la proporción original del plano:
+            imagen y puntos viajan juntos, así no se corren al recortar */}
+        <div className="audioguias__stage">
+          <img src={MAPA_IMG} alt="" className="audioguias__map-img" />
+
+          {MARCADORES.map((m) => (
+            <button
+              key={m.n}
+              type="button"
+              className="audioguias__marker"
+              style={{ left: `${m.x}%`, top: `${m.y}%` }}
+              onClick={() => irAlAudio(m.n)}
+              disabled={m.n > piezas.length}
+              aria-label={`${tx.puntos} ${m.n}`}
+            >
+              {m.n}
+            </button>
+          ))}
+        </div>
+
         <h2 className="audioguias__map-title">
           <HeadphonesIcon />
           {tx.puntos}
         </h2>
-
-        {MARCADORES.map((m) => (
-          <button
-            key={m.n}
-            type="button"
-            className="audioguias__marker"
-            style={{ left: `${m.x}%`, top: `${m.y}%` }}
-            onClick={() => irAlAudio(m.n)}
-            disabled={m.n > piezas.length}
-            aria-label={`${tx.puntos} ${m.n}`}
-          >
-            {m.n}
-          </button>
-        ))}
       </div>
 
       {/* ---------- Título y audios ---------- */}
@@ -109,8 +109,6 @@ export default function Galeria() {
             <PiezaCard key={pieza.id} pieza={pieza} numero={i + 1} />
           ))}
         </div>
-
-        
       </div>
     </section>
   );

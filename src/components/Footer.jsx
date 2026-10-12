@@ -12,7 +12,7 @@ const MAPS_URL =
 const ARCHIVO_URL = "https://monoambiente.com.ar/amanciowilliams/";
 const MUNICIPALIDAD_URL = "https://www.mardelplata.gob.ar";
 const DONAR_PATH = "/entradas"; // TODO: página real de donaciones
-const DEV_LOGO = "/assets/footer/desarrollado-por.png"; // TODO: imagen del desarrollador
+const DEV_LOGO = "/assets/logo-empresa.png";
 
 const svgBase = {
   viewBox: "0 0 24 24",
@@ -200,6 +200,13 @@ export default function Footer() {
           <div className="footer__dev">
             <span>{f.desarrollado}</span>
             <img src={DEV_LOGO} alt="" />
+            <div className="footer__brand" aria-label="BSN Producciones">
+              <span className="footer__brand-b" aria-hidden="true">B</span>
+              <span className="footer__brand-text" aria-hidden="true">
+                <strong>SN</strong>
+                <small>Producciones</small>
+              </span>
+            </div>
           </div>
         </div>
       </div>
