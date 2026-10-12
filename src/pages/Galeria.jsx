@@ -2,8 +2,11 @@ import { useLanguage } from "../context/LanguageContext.jsx";
 import piezas from "../data/galeria.js";
 import PiezaCard from "../components/PiezaCard.jsx";
 
-// Imagen del plano (public/assets/mapa-audioguias.jpg)
-const MAPA_IMG = "/assets/mapa-audioguias.png";
+// Planos según idioma (public/assets/)
+const MAPAS = {
+  es: "/assets/mapa-audioguias.png",
+  en: "/assets/mapa-audioguias-ingles.png",
+};
 
 // Posición de cada punto sobre el plano, en % (x = izquierda, y = arriba).
 // Si un punto queda corrido, se ajusta acá.
@@ -28,11 +31,13 @@ const TEXTOS = {
     puntos: "Puntos de escucha",
     titulo: "Audioguías",
     sub: "Buscá el número de cada punto de escucha y reproducí el audio correspondiente. Usá auriculares.",
+    mapaAlt: "Plano con los puntos de escucha de las audioguías",
   },
   en: {
     puntos: "Listening points",
     titulo: "Audio guides",
     sub: "Find the number of each listening point and play the matching audio. Use headphones.",
+    mapaAlt: "Floor plan with the audio guide listening points",
   },
 };
 
@@ -57,6 +62,7 @@ function HeadphonesIcon() {
 export default function Galeria() {
   const { lang } = useLanguage();
   const tx = TEXTOS[lang] || TEXTOS.es;
+  const mapaSrc = MAPAS[lang] || MAPAS.es;
 
   // Al hacer clic en un punto del mapa, baja hasta su audio y lo resalta
   function irAlAudio(n) {
@@ -74,7 +80,7 @@ export default function Galeria() {
         {/* Escenario con la proporción original del plano:
             imagen y puntos viajan juntos, así no se corren al recortar */}
         <div className="audioguias__stage">
-          <img src={MAPA_IMG} alt="" className="audioguias__map-img" />
+          <img src={mapaSrc} alt={tx.mapaAlt} className="audioguias__map-img" />
 
           {MARCADORES.map((m) => (
             <button
