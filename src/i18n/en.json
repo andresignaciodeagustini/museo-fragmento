@@ -15,9 +15,27 @@
     "asociacion": "The Association",
     "laCasa": "The House",
     "centro": "Interpretation Center",
-    "inmersiva": "AACasa Immersive",
+    "inmersiva": "AACASA Immersive",
     "agenda": "Events",
-    "contacto": "Contact"
+    "contacto": "Contact",
+    "comision": "Board of Directors",
+    "socios": "Members",
+    "padrinazgos": "Sponsorships and Partnerships",
+    "museoSitio": "What Is a Site Museum?",
+    "historiaCronologia": "History and Timeline",
+    "personajes": "Key Figures",
+    "investigaciones": "Research and Interventions",
+    "laboratorio": "Innovation Lab",
+    "talleres": "Workshops and Training",
+    "visitas": "Specialized Visits",
+    "audioguiasPaisaje": "Audio Guides and Soundscape",
+    "gemelo": "3D Digital Twin",
+    "accesibilidad": "Accessibility Resources",
+    "eventos": "Upcoming Events",
+    "noticias": "News and Updates",
+    "escribinos": "Write to Us",
+    "experiencia": "Share Your Experience",
+    "redes": "Social Media"
   },
   "hero": {
     "titulo": "Audio Guide",
@@ -66,12 +84,41 @@
       "texto": "Upcoming events, news and current affairs."
     },
     "software": {
-      "titulo": "Software",
+      "titulo": "3D Digital Twin",
       "texto": "Digital tools to explore the house remotely."
     }
   },
   "galeria": {
     "titulo": "Gallery",
     "subtitulo": "Twelve pieces, each with its own audio narration."
+  },
+  "footer": {
+    "seguinos": "Follow us",
+    "ayudaTitulo": "Help preserve this heritage",
+    "ayudaTexto": "Your support helps care for and promote the House Over the Stream.",
+    "donar": "Donate",
+    "entradaTitulo": "Free admission",
+    "direccion": "Quintana 3998.\nCorner of Funes\nMar del Plata, Buenos Aires\nArgentina",
+    "horariosTitulo": "Park hours",
+    "horarios": "Monday to Friday\n8:30 am to 2:30 pm",
+    "visitas": "Visits inside the house: by prior registration.",
+    "contactoTitulo": "Contact",
+    "comoLlegarTitulo": "Getting here",
+    "comoLlegarTexto": "Quintana and Funes",
+    "mapsBoton": "Open in Google Maps",
+    "explora": "Explore the house",
+    "audioguias": "Audio guides",
+    "cronologia": "Timeline",
+    "galeria": "Photo gallery",
+    "personalidades": "Key figures",
+    "quienesSomos": "About us",
+    "enlacesTitulo": "Links of interest",
+    "archivo": "Amancio Williams Archive",
+    "municipalidad": "Municipality of General Pueyrredón",
+    "agradTitulo": "Acknowledgments",
+    "agradTexto": "To the Asociación Amigos Casa sobre el Arroyo, for its commitment to the preservation and promotion of this heritage.",
+    "conoce": "Learn about the Association",
+    "copy": "House Over the Stream - Mar del Plata, Argentina",
+    "desarrollado": "Developed by"
   }
 }

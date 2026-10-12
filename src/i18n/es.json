@@ -17,7 +17,25 @@
     "centro": "Centro de Interpretación",
     "inmersiva": "AACasa Inmersiva",
     "agenda": "Agenda",
-    "contacto": "Contacto"
+    "contacto": "Contacto",
+    "comision": "Comisión Directiva",
+    "socios": "Socios",
+    "padrinazgos": "Padrinazgos y Alianzas",
+    "museoSitio": "¿Qué es un Museo de Sitio?",
+    "historiaCronologia": "Historia y Cronología",
+    "personajes": "Personajes Clave",
+    "investigaciones": "Investigaciones e Intervenciones",
+    "laboratorio": "Laboratorio de Innovación",
+    "talleres": "Talleres y Capacitaciones",
+    "visitas": "Visitas Especializadas",
+    "audioguiasPaisaje": "Audioguías y Paisaje Sonoro",
+    "gemelo": "Gemelo Digital 3D",
+    "accesibilidad": "Recursos de Accesibilidad",
+    "eventos": "Próximos Eventos",
+    "noticias": "Noticias y Actualidad",
+    "escribinos": "Escribinos",
+    "experiencia": "Compartí tu Experiencia",
+    "redes": "Redes Sociales"
   },
   "hero": {
     "titulo": "Audio Guía",
@@ -66,12 +84,41 @@
       "texto": "Próximos eventos, novedades y actualidad."
     },
     "software": {
-      "titulo": "Software",
+      "titulo": "Gemelo Digital 3D",
       "texto": "Herramientas digitales para explorar la casa a distancia."
     }
   },
   "galeria": {
     "titulo": "Galería",
     "subtitulo": "Doce piezas, cada una con su propia narración en audio."
+  },
+  "footer": {
+    "seguinos": "Seguinos",
+    "ayudaTitulo": "Ayudá a preservar este patrimonio",
+    "ayudaTexto": "Tu aporte acompaña el cuidado y la difusión de la Casa sobre el Arroyo.",
+    "donar": "Donar",
+    "entradaTitulo": "Entrada gratuita",
+    "direccion": "Quintana 3998.\nesquina Funes\nMar del Plata, Buenos Aires\nArgentina",
+    "horariosTitulo": "Horarios del parque",
+    "horarios": "Lunes a viernes\nDe 8:30 a 14:30 h",
+    "visitas": "Visitas al interior: con inscripción previa.",
+    "contactoTitulo": "Contacto",
+    "comoLlegarTitulo": "Cómo llegar",
+    "comoLlegarTexto": "Quintana y Funes",
+    "mapsBoton": "Abrir en Google Maps",
+    "explora": "Explorá la casa",
+    "audioguias": "Audioguías",
+    "cronologia": "Cronología",
+    "galeria": "Galería de fotos",
+    "personalidades": "Personalidades",
+    "quienesSomos": "Quiénes somos",
+    "enlacesTitulo": "Enlaces de interés",
+    "archivo": "Archivo Amancio Williams",
+    "municipalidad": "Municipalidad de General Pueyrredón",
+    "agradTitulo": "Agradecimientos",
+    "agradTexto": "A la Asociación Amigos Casa sobre el Arroyo, por su compromiso con la preservación y difusión de este patrimonio.",
+    "conoce": "Conocé la Asociación",
+    "copy": "Casa sobre el Arroyo - Mar del Plata, Argentina",
+    "desarrollado": "Desarrollado por"
   }
 }

@@ -5,7 +5,7 @@ import personas from "../data/personas.js";
 import Carousel from "../components/Carousel.jsx";
 
 // TODO: reemplazar por la página real de "Sumate a la AACASA".
-const SUMATE_PATH = "/quienes-somos";
+const SUMATE_PATH = "/asociacion/socios";
 
 // Orden en que aparecen las personalidades dentro de "La Casa"
 const ORDEN = ["alberto", "amancio", "delfina", "herman"];
@@ -138,7 +138,7 @@ export default function Home() {
         <div className="welcome-card">
           <h2>{t.bienvenida.titulo}</h2>
           <p>{t.bienvenida.texto}</p>
-          <Link to="/galeria" className="welcome-card__btn">
+          <Link to="/historia/museo-de-sitio" className="welcome-card__btn">
             <span>{t.bienvenida.boton}</span>
             <span className="welcome-card__arrow">→</span>
           </Link>
@@ -205,7 +205,7 @@ export default function Home() {
       {/* ---------- Audioguías ---------- */}
       <section className="home-wrap home-block">
         <h2 className="home-block__title">{t.audioguias.titulo}</h2>
-        <Link to="/galeria" className="audio-card">
+        <Link to="/inmersiva/audioguias" className="audio-card">
           <div className="audio-card__text">
             <p>{t.audioguias.texto}</p>
             <CircleArrow size={34} />
@@ -225,7 +225,7 @@ export default function Home() {
             sub={t.casa.cronologia.sub}
           />
           <Tile
-            to="/galeria"
+            to="/historia/galeria"
             img="/assets/home/galeriacasaimagenes.jpg"
             title={t.casa.galeria.titulo}
             sub={t.casa.galeria.sub}
@@ -246,25 +246,25 @@ export default function Home() {
         <h2 className="home-block__title">{t.asociacion.titulo}</h2>
         <Carousel label={t.asociacion.titulo}>
           <Tile
-            to="/"
+            to="/centro/laboratorio"
             img="/assets/centro.jpg"
             title={t.asociacion.centro.titulo}
             text={t.asociacion.centro.texto}
           />
           <Tile
-            to="/inmersiva"
+            to="/inmersiva/audioguias"
             img="/assets/inmersiva.JPG"
             title={t.asociacion.inmersiva.titulo}
             text={t.asociacion.inmersiva.texto}
           />
           <Tile
-            to="/agenda"
+            to="/agenda/eventos"
             img="/assets/agenda.jpg"
             title={t.asociacion.agenda.titulo}
             text={t.asociacion.agenda.texto}
           />
           <Tile
-            to="/software"
+            to="/inmersiva/gemelo-digital"
             img="/assets/software.png"
             title={t.asociacion.software.titulo}
             text={t.asociacion.software.texto}
