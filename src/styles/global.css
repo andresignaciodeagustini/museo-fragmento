@@ -377,28 +377,28 @@ img { max-width: 100%; display: block; }
   border: 0;
 }
 
-/* ---------- Tarjeta de bienvenida sobre el video ---------- */
+/* ---------- Tarjeta de bienvenida sobre el video (30% más chica) ---------- */
 .welcome-card {
   position: absolute;
-  left: 80px;
-  bottom: 40px;
+  left: 56px;
+  bottom: 28px;
   z-index: 2;
-  width: 400px;
+  width: 280px;
   max-width: calc(100% - 32px);
-  padding: 30px 30px 30px;
+  padding: 21px;
   background: #fff;
   color: #111;
   font-family: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
 }
 .welcome-card h2 {
-  margin: 0 0 18px;
-  font-size: 1.9rem;
+  margin: 0 0 13px;
+  font-size: 1.33rem;
   line-height: 1.12;
   font-weight: 500;
 }
 .welcome-card p {
-  margin: 0 0 26px;
-  font-size: 1.45rem;
+  margin: 0 0 18px;
+  font-size: 1.02rem;
   line-height: 1.2;
   font-weight: 600;
 }
@@ -406,10 +406,10 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 24px;
+  padding: 15px 17px;
   background: #000;
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 0.98rem;
   font-weight: 500;
   text-decoration: none;
 }
@@ -420,7 +420,7 @@ img { max-width: 100%; display: block; }
   display: inline-block;
   background: none;
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 1.26rem;
   line-height: 1;
 }
 
@@ -430,16 +430,16 @@ img { max-width: 100%; display: block; }
     right: 16px;
     bottom: 16px;
     width: auto;
-    padding: 22px;
+    padding: 16px;
   }
   .welcome-card h2 {
-    font-size: 1.6rem;
+    font-size: 1.12rem;
   }
   .welcome-card p {
-    font-size: 1.25rem;
+    font-size: 0.88rem;
   }
   .welcome-card__btn {
-    padding: 18px 20px;
+    padding: 13px 14px;
   }
 }
 
@@ -508,7 +508,7 @@ img { max-width: 100%; display: block; }
 }
 .home-info__title {
   margin: 0;
-  font-size: 2.9rem;
+  font-size: 1.5rem;   /* antes 2.9rem */
   line-height: 1.1;
   font-weight: 400;
   white-space: pre-line;
@@ -531,7 +531,7 @@ img { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.05rem;
+  font-size: 1.31rem;   /* antes 1.05rem (+25%) */
   font-weight: 500;
   letter-spacing: 0.01em;
 }
@@ -734,7 +734,7 @@ img { max-width: 100%; display: block; }
     align-items: flex-start;
     gap: 28px;
   }
-  .home-info__title { font-size: 2.2rem; }
+  .home-info__title { font-size: 1.7rem; }   /* antes 2.2rem */
   .home-info__action { padding-left: 0; }
   .home-block__title { font-size: 1.9rem; }
 

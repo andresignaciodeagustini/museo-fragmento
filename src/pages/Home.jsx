@@ -25,8 +25,8 @@ function posicion(p) {
 }
 
 const icono = {
-  width: 36,
-  height: 36,
+  width: 45,   // antes 36 (+25%)
+  height: 45,  // antes 36 (+25%)
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
