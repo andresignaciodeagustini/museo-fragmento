@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext.jsx";
-import personas from "../data/personas.js";
+import { useLanguage } from "../../context/LanguageContext.jsx";
+import personas from "../../data/personas.js";
+import biografias from "../../data/biografias.js";
+import Biografia from "./Biografia.jsx";
 
 export default function Persona() {
   const { slug } = useParams();
@@ -19,6 +21,13 @@ export default function Persona() {
     );
   }
 
+  // Si ya hay biografía cargada, se usa la página nueva.
+  const bio = biografias[slug];
+  if (bio) {
+    return <Biografia persona={persona} bio={bio} />;
+  }
+
+  // Mientras no haya biografía, se mantiene la página simple de siempre (usa global.css).
   const otras = personas.filter((p) => p.slug !== slug);
 
   return (

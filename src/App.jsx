@@ -9,7 +9,7 @@ import Entradas from "./pages/Entradas.jsx";
 import QuienesSomos from "./pages/QuienesSomos.jsx";
 import Historia from "./pages/Historia.jsx";
 import Cronologia from "./pages/Cronologia.jsx";
-import Persona from "./pages/Persona.jsx";
+import Persona from "./pages/Persona/Persona.jsx";
 
 // Páginas nuevas todavía sin contenido: [ruta, clave en t.nav]
 const provisorias = [
