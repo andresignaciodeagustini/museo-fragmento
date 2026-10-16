@@ -1,0 +1,234 @@
+/* Estilos exclusivos de la galería de fotos. No depende de clases de global.css. */
+
+.page {
+  color: #1c1d1f;
+  padding-bottom: 8vh;
+}
+
+.wrap {
+  margin: 0 5vw;
+}
+
+/* ---------- Imagen principal ---------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 64vh, 660px);
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+}
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: aparecer 0.5s ease;
+}
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heroImg {
+    animation: none;
+  }
+}
+/* Degradé inferior para que el texto se lea sobre cualquier foto */
+.heroShade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+/* ---------- Flechas ---------- */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.arrow:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+.arrowPrev {
+  left: clamp(12px, 2vw, 28px);
+}
+.arrowNext {
+  right: clamp(12px, 2vw, 28px);
+}
+
+/* ---------- Barra inferior: título, contador y pausa ---------- */
+.heroBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 clamp(16px, 2.5vw, 32px) clamp(16px, 2.5vw, 28px);
+}
+.heroCaption {
+  margin: 0;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.heroTools {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.counter {
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+.playBtn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.playBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.arrow:focus-visible,
+.playBtn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 0 12px;
+  font-size: 0.9rem;
+  color: #4a4b4e;
+}
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Encabezado ---------- */
+.header {
+  padding-bottom: 28px;
+}
+.title {
+  margin: 0;
+  font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  margin: 12px 0 0;
+  max-width: 760px;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.5;
+}
+
+/* ---------- Grilla de miniaturas ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.thumb {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #e9e9e9;
+  cursor: pointer;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.thumb:hover img {
+  transform: scale(1.03);
+}
+.thumbActive {
+  outline: 3px solid #1c1d1f;
+  outline-offset: 2px;
+}
+.thumb:focus-visible {
+  outline: 3px solid #1c1d1f;
+  outline-offset: 2px;
+}
+.thumbCaption {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+/* ---------- Tablet y mobile ---------- */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    height: clamp(240px, 58vw, 420px);
+  }
+  .arrow,
+  .playBtn {
+    width: 38px;
+    height: 38px;
+  }
+  .heroBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .heroTools {
+    align-self: flex-end;
+  }
+  .grid {
+    gap: 20px 12px;
+  }
+}

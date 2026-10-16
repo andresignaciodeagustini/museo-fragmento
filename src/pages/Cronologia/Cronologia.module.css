@@ -1,0 +1,120 @@
+/* Estilos exclusivos de la página de cronología. No depende de clases de global.css. */
+
+.page {
+  color: #1c1d1f;
+  padding-bottom: 8vh;
+}
+
+.wrap {
+  margin: 0 5vw;
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 0 12px;
+  font-size: 0.9rem;
+}
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.breadcrumb a[aria-current="page"] {
+  font-weight: 600;
+}
+
+/* ---------- Título principal ---------- */
+.title {
+  margin: 0 0 28px;
+  font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Secciones: texto a la izquierda, imágenes a la derecha ---------- */
+.seccion {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: start;
+  gap: clamp(24px, 4vw, 56px);
+  padding: 36px 0;
+  border-bottom: 1px solid #d9d9d9;
+}
+.seccion:first-child {
+  padding-top: 8px;
+}
+
+.texto h2 {
+  margin: 0 0 18px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.texto p {
+  margin: 0 0 1.1em;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.55;
+}
+.texto p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Imágenes ---------- */
+/* Grilla de 2 columnas: .mitad ocupa una, el resto ocupa las dos */
+.imagenes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 12px;
+}
+.figura {
+  grid-column: span 2;
+  margin: 0;
+}
+.mitad {
+  grid-column: span 1;
+}
+.figura img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pie {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: #4a4b4e;
+}
+
+/* ---------- Cierre (solo texto) ---------- */
+.cierre {
+  max-width: 900px;
+  padding: 40px 0 0;
+}
+.cierre h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.cierre p {
+  margin: 0;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.55;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .seccion {
+    grid-template-columns: 1fr;
+  }
+}

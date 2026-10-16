@@ -8,7 +8,8 @@ import Visita from "./pages/Visita.jsx";
 import Entradas from "./pages/Entradas.jsx";
 import QuienesSomos from "./pages/QuienesSomos.jsx";
 import Historia from "./pages/Historia.jsx";
-import Cronologia from "./pages/Cronologia.jsx";
+import Cronologia from "./pages/Cronologia/Cronologia.jsx";
+import GaleriaFotos from "./pages/GaleriaFotos/GaleriaFotos.jsx";
 import Persona from "./pages/Persona/Persona.jsx";
 
 // Páginas nuevas todavía sin contenido: [ruta, clave en t.nav]
@@ -18,7 +19,6 @@ const provisorias = [
   ["/asociacion/padrinazgos", "padrinazgos"],
   ["/historia/museo-de-sitio", "museoSitio"],
   ["/historia/investigaciones", "investigaciones"],
-  ["/historia/galeria", "galeria"],
   ["/centro/laboratorio", "laboratorio"],
   ["/centro/talleres", "talleres"],
   ["/centro/visitas", "visitas"],
@@ -48,6 +48,7 @@ export default function App() {
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/historia" element={<Historia />} />
           <Route path="/historia/cronologia" element={<Cronologia />} />
+          <Route path="/historia/galeria" element={<GaleriaFotos />} />
 
           {/* Secciones padre: redirigen a su primera subpágina */}
           <Route path="/centro" element={<Navigate to="/centro/laboratorio" replace />} />
