@@ -92,7 +92,7 @@ function Tile({ to, img, title, sub, text }) {
 }
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(true);
@@ -252,6 +252,7 @@ export default function Home() {
               to={`/historia/${p.slug}`}
               img={fotoDe(p)}
               title={p.nombre}
+              sub={p.rol[lang]}
             />
           ))}
         </Carousel>

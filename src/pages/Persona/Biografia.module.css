@@ -5,13 +5,40 @@
   padding-bottom: 8vh;
 }
 
-/* ---------- Imagen principal ---------- */
+/* ---------- Imagen principal (recortada para llenar el ancho) ---------- */
 .hero {
   display: block;
   width: 100%;
   aspect-ratio: 21 / 10;
   max-height: 70vh;
   object-fit: cover;
+  object-position: center;
+}
+
+/* ---------- Imagen principal completa (ajuste: "contain") ----------
+   La foto se ve entera; los costados se rellenan con la misma imagen desenfocada. */
+.heroContain {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 66vh, 660px);
+  overflow: hidden;
+  background: #d9d9d9;
+}
+.heroContain::before {
+  content: "";
+  position: absolute;
+  inset: -40px; /* evita bordes claros por el desenfoque */
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(28px);
+}
+.heroContainImg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -118,6 +145,14 @@
   height: auto;
 }
 
+/* Pie de foto (opcional) */
+.pie {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: #4a4b4e;
+}
+
 /* Imágenes apiladas: el recuadro (aspect-ratio) y el encuadre (object-position)
    se definen por imagen en biografias.js; aquí solo se recorta para llenarlo. */
 .variasImagenes .imagen img {
@@ -128,6 +163,9 @@
 @media (max-width: 760px) {
   .hero {
     aspect-ratio: 4 / 3;
+  }
+  .heroContain {
+    height: clamp(240px, 45vh, 400px);
   }
   .bloque {
     grid-template-columns: 1fr;

@@ -8,8 +8,8 @@ const personas = [
     años: "",
     foto: "",
     rol: {
-      es: "Arquitecto de la Casa sobre el Arroyo.",
-      en: "Architect of the House Over the Stream.",
+      es: "Arquitecto",
+      en: "Architect",
     },
     texto: {
       es: "Contenido pendiente.",
@@ -22,8 +22,8 @@ const personas = [
     años: "",
     foto: "",
     rol: {
-      es: "Rol pendiente.",
-      en: "Role to be defined.",
+      es: "Investigaciones",
+      en: "Research",
     },
     texto: {
       es: "Contenido pendiente.",
@@ -36,8 +36,8 @@ const personas = [
     años: "",
     foto: "",
     rol: {
-      es: "Rol pendiente.",
-      en: "Role to be defined.",
+      es: "Arquitecta",
+      en: "Architect",
     },
     texto: {
       es: "Contenido pendiente.",
@@ -50,8 +50,8 @@ const personas = [
     años: "",
     foto: "",
     rol: {
-      es: "Rol pendiente.",
-      en: "Role to be defined.",
+      es: "Músico. Propietario de la casa",
+      en: "Musician. Owner of the house",
     },
     texto: {
       es: "Contenido pendiente.",

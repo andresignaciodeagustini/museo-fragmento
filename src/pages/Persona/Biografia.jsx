@@ -13,13 +13,31 @@ export default function Biografia({ persona, bio }) {
 
   return (
     <article className={styles.page}>
-      {bio.hero && (
-        <img
-          className={styles.hero}
-          src={bio.hero.src}
-          alt={bio.hero.alt?.[lang] ?? persona.nombre}
-        />
-      )}
+      {bio.hero &&
+        (bio.hero.ajuste === "contain" ? (
+          // Foto completa (sin recortar) con fondo borroso de la misma imagen
+          <div
+            className={styles.heroContain}
+            style={{ "--hero-bg": `url("${bio.hero.src}")` }}
+          >
+            <img
+              className={styles.heroContainImg}
+              src={bio.hero.src}
+              alt={bio.hero.alt?.[lang] ?? persona.nombre}
+            />
+          </div>
+        ) : (
+          <img
+            className={styles.hero}
+            src={bio.hero.src}
+            alt={bio.hero.alt?.[lang] ?? persona.nombre}
+            style={
+              bio.hero.posicion
+                ? { objectPosition: bio.hero.posicion }
+                : undefined
+            }
+          />
+        ))}
 
       <div className={styles.wrap}>
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
@@ -62,7 +80,15 @@ export default function Biografia({ persona, bio }) {
                 {imagenes.length > 0 && (
                   <div className={styles.imagenes}>
                     {imagenes.map((img, k) => (
-                      <figure key={k} className={styles.imagen}>
+                      <figure
+                        key={k}
+                        className={styles.imagen}
+                        style={
+                          img.ancho
+                            ? { width: img.ancho, marginInline: "auto" }
+                            : undefined
+                        }
+                      >
                         <img
                           src={img.src}
                           alt={img.alt?.[lang] ?? ""}
@@ -76,6 +102,11 @@ export default function Biografia({ persona, bio }) {
                               : undefined
                           }
                         />
+                        {img.pie && (
+                          <figcaption className={styles.pie}>
+                            {img.pie[lang]}
+                          </figcaption>
+                        )}
                       </figure>
                     ))}
                   </div>
