@@ -126,7 +126,6 @@ export default function Home() {
           ref={videoRef}
           className="hero-full__img"
           src="/assets/video-home.mp4"
-          poster="/assets/1.jpg"
           autoPlay
           loop
           muted
@@ -138,9 +137,25 @@ export default function Home() {
         <div className="welcome-card">
           <h2>{t.bienvenida.titulo}</h2>
           <p>{t.bienvenida.texto}</p>
-          <Link to="/historia/museo-de-sitio" className="welcome-card__btn">
+          <Link to="/inmersiva/audioguias" className="welcome-card__btn">
             <span>{t.bienvenida.boton}</span>
-            <span className="welcome-card__arrow">→</span>
+            <svg
+              className="welcome-card__arrow"
+              viewBox="0 0 24 24"
+              width="26"
+              height="26"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="12" fill="currentColor" />
+              <path
+                d="M10 7l5 5-5 5"
+                fill="none"
+                stroke="#000"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
         </div>
 
@@ -202,38 +217,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- Audioguías ---------- */}
-      <section className="home-wrap home-block">
-        <h2 className="home-block__title">{t.audioguias.titulo}</h2>
-        <Link to="/inmersiva/audioguias" className="audio-card">
-          <div className="audio-card__text">
-            <p>{t.audioguias.texto}</p>
-            <span className="audio-card__btn">
-              <span>{t.audioguias.boton}</span>
-              <svg
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14" />
-                <path d="M13 6l6 6-6 6" />
-              </svg>
-            </span>
-          </div>
-          <img src="/assets/home/audioguias.png" alt="" />
-        </Link>
-      </section>
-
       {/* ---------- La Casa ---------- */}
       <section className="home-wrap home-block">
         <h2 className="home-block__title">{t.casa.titulo}</h2>
-        <Carousel label={t.casa.titulo}>
+        <div className="home-grid">
           <Tile
             to="/historia/cronologia"
             img="/assets/home/cronologia.png"
@@ -255,7 +242,7 @@ export default function Home() {
               sub={p.rol[lang]}
             />
           ))}
-        </Carousel>
+        </div>
       </section>
 
       {/* ---------- La Asociación ---------- */}

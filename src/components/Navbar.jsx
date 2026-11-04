@@ -53,17 +53,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { t } = useLanguage();
 
+  // Orden del menú: La Casa primero, después La Asociación.
+  // "Agenda" ya no va en la barra: quedó como ítem dentro de "La Casa".
   const mainLinks = [
-    {
-      to: "/quienes-somos",
-      label: t.nav.asociacion,
-      children: [
-        { to: "/quienes-somos", label: t.nav.quienesSomos },
-        { to: "/asociacion/comision-directiva", label: t.nav.comision },
-        { to: "/asociacion/socios", label: t.nav.socios },
-        { to: "/asociacion/padrinazgos", label: t.nav.padrinazgos },
-      ],
-    },
     {
       to: "/historia",
       label: t.nav.laCasa,
@@ -73,6 +65,17 @@ export default function Navbar() {
         { to: "/historia", label: t.nav.personajes },
         { to: "/historia/investigaciones", label: t.nav.investigaciones },
         { to: "/historia/galeria", label: t.nav.galeria },
+        { to: "/agenda/eventos", label: t.nav.agenda },
+      ],
+    },
+    {
+      to: "/quienes-somos",
+      label: t.nav.asociacion,
+      children: [
+        { to: "/quienes-somos", label: t.nav.quienesSomos },
+        { to: "/asociacion/comision-directiva", label: t.nav.comision },
+        { to: "/asociacion/socios", label: t.nav.socios },
+        { to: "/asociacion/padrinazgos", label: t.nav.padrinazgos },
       ],
     },
     {
@@ -91,14 +94,6 @@ export default function Navbar() {
         { to: "/inmersiva/audioguias", label: t.nav.audioguiasPaisaje },
         { to: "/inmersiva/gemelo-digital", label: t.nav.gemelo },
         { to: "/inmersiva/accesibilidad", label: t.nav.accesibilidad },
-      ],
-    },
-    {
-      to: "/agenda",
-      label: t.nav.agenda,
-      children: [
-        { to: "/agenda/eventos", label: t.nav.eventos },
-        { to: "/agenda/noticias", label: t.nav.noticias },
       ],
     },
     {

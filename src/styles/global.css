@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Poppins:wght@400;500&display=swap");
 
 :root {
-  --navbar-h: 120px;
-  --navbar-font: 1.2rem;
+  --navbar-h: 150px;   /* antes 120px: más aire, como el British Museum */
+  --navbar-font: 1.3rem;
 }
 
 * { box-sizing: border-box; }
@@ -52,7 +52,7 @@ img { max-width: 100%; display: block; }
 .navbar__right {
   flex-direction: column;
   align-items: flex-end;
-  gap: 22px;
+  gap: 30px;
 }
 
 /* Fila superior: idiomas */
@@ -76,7 +76,6 @@ img { max-width: 100%; display: block; }
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.01em;
-  text-transform: uppercase;
   white-space: nowrap;
   text-decoration: none;
 }
@@ -194,7 +193,6 @@ img { max-width: 100%; display: block; }
   color: #fff;
   font-size: 1.1rem;
   font-weight: 500;
-  text-transform: uppercase;
 }
 .navbar__mobile-group {
   display: flex;
@@ -239,6 +237,7 @@ img { max-width: 100%; display: block; }
   width: 100%;
   height: calc(100vh - var(--navbar-h));
   overflow: hidden;
+  background: #000; /* mientras carga el video no se ve ninguna imagen */
 }
 .hero-full__img {
   position: absolute;
@@ -377,39 +376,41 @@ img { max-width: 100%; display: block; }
   border: 0;
 }
 
-/* ---------- Tarjeta de bienvenida sobre el video (30% más chica) ---------- */
+/* ---------- Tarjeta de bienvenida sobre el video ----------
+   Proporciones, espacios y tipografía tomados del cartel del British Museum. */
 .welcome-card {
   position: absolute;
-  left: 56px;
-  bottom: 28px;
+  left: 3.6vw;
+  bottom: 5vh;
   z-index: 2;
-  width: 280px;
+  width: clamp(300px, 24vw, 440px);
   max-width: calc(100% - 32px);
-  padding: 21px;
+  padding: clamp(24px, 2vw, 38px);
   background: #fff;
-  color: #111;
-  font-family: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+  color: #000;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .welcome-card h2 {
-  margin: 0 0 13px;
-  font-size: 1.33rem;
-  line-height: 1.12;
+  margin: 0 0 clamp(14px, 1.3vw, 24px);
+  font-size: clamp(1.45rem, 1.85vw, 2.15rem);
+  line-height: 1.25;
   font-weight: 500;
 }
 .welcome-card p {
-  margin: 0 0 18px;
-  font-size: 1.02rem;
-  line-height: 1.2;
-  font-weight: 600;
+  margin: 0 0 clamp(18px, 1.6vw, 30px);
+  font-size: clamp(0.95rem, 1.1vw, 1.25rem);
+  line-height: 1.65;
+  font-weight: 400;
 }
 .welcome-card__btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 17px;
+  gap: 16px;
+  padding: clamp(13px, 1vw, 18px) clamp(18px, 1.4vw, 26px);
   background: #000;
   color: #fff;
-  font-size: 0.98rem;
+  font-size: clamp(1rem, 1.15vw, 1.3rem);
   font-weight: 500;
   text-decoration: none;
 }
@@ -417,11 +418,14 @@ img { max-width: 100%; display: block; }
   background: #222;
 }
 .welcome-card__arrow {
-  display: inline-block;
-  background: none;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
   color: #fff;
-  font-size: 1.26rem;
-  line-height: 1;
+  transition: transform 0.15s;
+}
+.welcome-card__btn:hover .welcome-card__arrow {
+  transform: translateX(4px);
 }
 
 @media (max-width: 700px) {
@@ -430,16 +434,13 @@ img { max-width: 100%; display: block; }
     right: 16px;
     bottom: 16px;
     width: auto;
-    padding: 16px;
+    padding: 20px;
   }
   .welcome-card h2 {
-    font-size: 1.12rem;
+    font-size: 1.3rem;
   }
   .welcome-card p {
-    font-size: 0.88rem;
-  }
-  .welcome-card__btn {
-    padding: 13px 14px;
+    font-size: 0.92rem;
   }
 }
 
@@ -670,6 +671,15 @@ img { max-width: 100%; display: block; }
 }
 .carousel__dot.is-active { background: #fff; }
 
+/* ---------- La Casa: grilla visible (en lugar de carrusel) ---------- */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 46px; /* mismo margen que el carrusel de La Asociación */
+}
+.home-grid .tile { flex: none; }
+
 /* ---------- Tarjetas de los carruseles ---------- */
 .tile {
   flex: 0 0 calc((100% - (var(--per) - 1) * var(--gap)) / var(--per));
@@ -747,11 +757,13 @@ img { max-width: 100%; display: block; }
   .audio-card__text { padding: 24px; }
 
   .carousel__stage { padding: 0 36px; }
+  .home-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 0; }
   .carousel__arrow { width: 30px; height: 30px; }
   .carousel__track,
   .carousel__track:has(.tile__text p) { --per: 2; }
 }
 @media (max-width: 480px) {
+  .home-grid { grid-template-columns: 1fr; }
   .carousel__track,
   .carousel__track:has(.tile__text p) { --per: 1; }
 }

@@ -15,7 +15,7 @@
     "asociacion": "La Asociación",
     "laCasa": "La Casa",
     "centro": "Centro de Interpretación",
-    "inmersiva": "AACasa Inmersiva",
+    "inmersiva": "AACASA Inmersiva",
     "agenda": "Agenda",
     "contacto": "Contacto",
     "comision": "Comisión Directiva",
@@ -47,7 +47,7 @@
   "bienvenida": {
     "titulo": "Bienvenidos a la Casa Sobre el Arroyo",
     "texto": "Un patrimonio arquitectónico, natural y cultural único, abierto a la comunidad.",
-    "boton": "Descubrí más."
+    "boton": "Audioguías"
   },
   "info": {
     "titulo": "Descubrí el Museo\nCasa sobre el Arroyo",
