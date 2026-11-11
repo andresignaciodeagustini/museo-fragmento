@@ -233,15 +233,25 @@ export default function Home() {
             title={t.casa.galeria.titulo}
             sub={t.casa.galeria.sub}
           />
-          {lista.map((p) => (
-            <Tile
-              key={p.slug}
-              to={`/historia/${p.slug}`}
-              img={fotoDe(p)}
-              title={p.nombre}
-              sub={p.rol[lang]}
-            />
-          ))}
+          {lista.map((p) =>
+            // Herman Clinckspoor: la tarjeta lleva a "Investigaciones e Intervenciones"
+            p.slug === "herman-clinckspoor" ? (
+              <Tile
+                key={p.slug}
+                to="/historia/investigaciones"
+                img={fotoDe(p)}
+                title={t.nav.investigaciones}
+              />
+            ) : (
+              <Tile
+                key={p.slug}
+                to={`/historia/${p.slug}`}
+                img={fotoDe(p)}
+                title={p.nombre}
+                sub={p.rol[lang]}
+              />
+            )
+          )}
         </div>
       </section>
 

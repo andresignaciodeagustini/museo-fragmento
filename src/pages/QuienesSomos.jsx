@@ -1,12 +1,6 @@
-import { useLanguage } from "../context/LanguageContext.jsx";
+import PaginaContenido from "../components/PaginaContenido/PaginaContenido.jsx";
+import paginas from "../data/paginas.js";
 
 export default function QuienesSomos() {
-  const { t } = useLanguage();
-
-  return (
-    <section className="placeholder-page">
-      <h1>{t.nav.quienesSomos}</h1>
-      <p>Contenido pendiente.</p>
-    </section>
-  );
+  return <PaginaContenido pagina={paginas.quienesSomos} />;
 }

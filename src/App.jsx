@@ -11,14 +11,13 @@ import Historia from "./pages/Historia.jsx";
 import Cronologia from "./pages/Cronologia/Cronologia.jsx";
 import GaleriaFotos from "./pages/GaleriaFotos/GaleriaFotos.jsx";
 import Persona from "./pages/Persona/Persona.jsx";
+import PaginaContenido from "./components/PaginaContenido/PaginaContenido.jsx";
+import paginas from "./data/paginas.js";
 
 // Páginas nuevas todavía sin contenido: [ruta, clave en t.nav]
 const provisorias = [
-  ["/asociacion/comision-directiva", "comision"],
   ["/asociacion/socios", "socios"],
   ["/asociacion/padrinazgos", "padrinazgos"],
-  ["/historia/museo-de-sitio", "museoSitio"],
-  ["/historia/investigaciones", "investigaciones"],
   ["/centro/laboratorio", "laboratorio"],
   ["/centro/talleres", "talleres"],
   ["/centro/visitas", "visitas"],
@@ -49,6 +48,11 @@ export default function App() {
           <Route path="/historia" element={<Historia />} />
           <Route path="/historia/cronologia" element={<Cronologia />} />
           <Route path="/historia/galeria" element={<GaleriaFotos />} />
+
+          {/* Páginas institucionales (contenido en src/data/paginas.js) */}
+          <Route path="/asociacion/comision-directiva" element={<PaginaContenido pagina={paginas.comisionDirectiva} />} />
+          <Route path="/historia/museo-de-sitio" element={<PaginaContenido pagina={paginas.museoSitio} />} />
+          <Route path="/historia/investigaciones" element={<PaginaContenido pagina={paginas.investigaciones} />} />
 
           {/* Secciones padre: redirigen a su primera subpágina */}
           <Route path="/centro" element={<Navigate to="/centro/laboratorio" replace />} />

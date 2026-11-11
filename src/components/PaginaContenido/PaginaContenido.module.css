@@ -1,0 +1,184 @@
+/* Plantilla de páginas institucionales. Sigue el mismo formato que la
+   página de biografía (Persona/Biografia.module.css). */
+
+.page {
+  color: #1c1d1f;
+  background: #fff;
+  padding-bottom: 8vh;
+}
+
+/* ---------- Imagen principal ---------- */
+.hero {
+  display: block;
+  width: 100%;
+  aspect-ratio: 21 / 10;
+  max-height: 70vh;
+  object-fit: cover;
+  object-position: center;
+}
+.heroPendiente {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: clamp(240px, 50vh, 520px);
+  background: #d9d9d9;
+  color: #6b6c70;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.wrap {
+  margin: 0 5vw;
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 0 12px;
+  font-size: 0.9rem;
+}
+.miga {
+  display: inline-flex;
+  gap: 8px;
+}
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.current {
+  font-weight: 600;
+}
+
+/* ---------- Encabezado ---------- */
+.header {
+  padding-bottom: 36px;
+}
+.titulo {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.subtitulo {
+  margin: 8px 0 0;
+  font-size: clamp(1.25rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* ---------- Secciones ---------- */
+.seccion + .seccion {
+  margin-top: 36px;
+}
+.separada {
+  padding-top: 32px;
+  border-top: 1px solid #d9d9d9;
+}
+.h2 {
+  margin: 0 0 20px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.nota {
+  margin: -8px 0 20px;
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+}
+
+/* ---------- Bloques texto + imagen ---------- */
+.bloque {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: clamp(24px, 4vw, 56px);
+}
+.bloque + .bloque {
+  margin-top: 28px;
+}
+.imagenIzquierda .imagen {
+  order: -1;
+}
+.soloTexto {
+  grid-template-columns: 1fr;
+}
+
+.texto p {
+  margin: 0 0 1.1em;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.55;
+}
+.texto p:last-child {
+  margin-bottom: 0;
+}
+.destacado {
+  font-weight: 700;
+}
+
+/* ---------- Imagen o recuadro pendiente ---------- */
+.imagen {
+  margin: 0;
+}
+.imagen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pendiente {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  background: #e6e6e6;
+  color: #6b6c70;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pie {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: #4a4b4e;
+}
+
+/* ---------- Listas (autoridades, integrantes...) ---------- */
+.lista + .lista {
+  margin-top: 24px;
+}
+.lista h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+}
+.lista ul {
+  margin: 0;
+  padding-left: 1.4em;
+}
+.lista li {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.6;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .hero {
+    aspect-ratio: 4 / 3;
+  }
+  .bloque {
+    grid-template-columns: 1fr;
+  }
+  .imagenIzquierda .imagen {
+    order: 0;
+  }
+}
