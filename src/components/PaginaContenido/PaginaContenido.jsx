@@ -16,7 +16,12 @@ function Imagen({ img, lang, className }) {
   if (img?.src) {
     return (
       <figure className={`${styles.imagen} ${className ?? ""}`}>
-        <img src={img.src} alt={img.alt?.[lang] ?? ""} loading="lazy" />
+        <img
+          src={img.src}
+          alt={img.alt?.[lang] ?? ""}
+          loading="lazy"
+          style={img.posicion ? { objectPosition: img.posicion } : undefined}
+        />
         {img.pie && <figcaption className={styles.pie}>{img.pie[lang]}</figcaption>}
       </figure>
     );

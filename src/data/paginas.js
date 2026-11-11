@@ -12,7 +12,11 @@
 //   bloque      { texto: {es:[párrafos], en:[párrafos]}, imagen?, lado?: "izquierda",
 //                 listas?, destacado? (párrafo final en negrita) }
 
-const foto = (es, en) => ({ src: "", alt: { es, en } });
+const D = "/assets/paginas/";
+const foto = (es, en, archivo = "") => ({
+  src: archivo ? D + archivo : "",
+  alt: { es, en },
+});
 
 const LA_CASA = { to: "/historia", label: { es: "La Casa", en: "The House" } };
 const QUIENES = {
@@ -24,7 +28,7 @@ const QUIENES = {
    QUIÉNES SOMOS
    ===================================================================== */
 const quienesSomos = {
-  hero: foto("Integrantes de AACASA en la Casa sobre el Arroyo", "AACASA members at the House over the Stream"),
+  hero: foto("Integrantes de AACASA en la Casa sobre el Arroyo", "AACASA members at the House over the Stream", "quienes-hero.jpg"),
   migas: [],
   titulo: { es: "Quiénes somos", en: "About us" },
   subtitulo: {
@@ -43,7 +47,7 @@ const quienesSomos = {
               "The Friends of the House over the Stream Association (AACASA) is a non-profit civil association made up of citizens committed to the preservation, enhancement and promotion of one of the most significant architectural and landscape ensembles in Argentina. We are united by the conviction that the House over the Stream is an exceptional heritage site, whose importance goes beyond the limits of Mar del Plata and forms part of the cultural legacy of international modern architecture.",
             ],
           },
-          imagen: foto("Visita guiada en el parque de la Casa", "Guided tour in the park of the House"),
+          imagen: foto("Visita guiada en el parque de la Casa", "Guided tour in the park of the House", "quienes-visita-parque.jpg"),
         },
       ],
     },
@@ -59,7 +63,7 @@ const quienesSomos = {
               "Our Association was founded in 2012, at the same time as the Municipality of General Pueyrredon acquired the property and the Casa del Puente Museum was created. Since then, we have supported the recovery and enhancement of this ensemble, encouraging active public participation in its protection. We believe that conserving heritage does not only mean preserving a building, but also recognizing its history, understanding its meaning and ensuring that its values can be passed on to future generations.",
             ],
           },
-          imagen: foto("Visitantes en el interior de la Casa", "Visitors inside the House"),
+          imagen: foto("Visitantes en el interior de la Casa", "Visitors inside the House", "quienes-galeria-visitantes.jpg"),
         },
       ],
     },
@@ -75,7 +79,7 @@ const quienesSomos = {
               "The House over the Stream, designed by Amancio Williams and Delfina Gálvez Bunge and built between 1943 and 1945, is an extraordinary synthesis of architecture, technical innovation and nature. Its reinforced concrete structure, its placement over the Las Chacras stream and its integration with the park form an inseparable whole. At AACASA we defend a comprehensive view of this heritage, one that embraces both its architectural and historical values and its environmental, cultural and social dimensions.",
             ],
           },
-          imagen: foto("Encuentro de la Asociación en el parque", "Association gathering in the park"),
+          imagen: foto("Encuentro de la Asociación en el parque", "Association gathering in the park", "quienes-encuentro-parque.jpg"),
         },
       ],
     },
@@ -107,7 +111,7 @@ const quienesSomos = {
    COMISIÓN DIRECTIVA
    ===================================================================== */
 const comisionDirectiva = {
-  hero: foto("Maqueta del conjunto Casa sobre el Arroyo", "Model of the House over the Stream ensemble"),
+  hero: foto("Maqueta del conjunto Casa sobre el Arroyo", "Model of the House over the Stream ensemble", "comision-hero.jpg"),
   migas: [QUIENES],
   titulo: { es: "Comisión Directiva", en: "Board of Directors" },
   subtitulo: {
@@ -126,7 +130,7 @@ const comisionDirectiva = {
               "The Friends of the House over the Stream Association (AACASA) is organized as a non-profit civil association whose activity is sustained by the volunteer commitment of its members. Its Board of Directors brings together people with different professional and cultural backgrounds who share the goal of supporting the preservation, research, enhancement and promotion of the House over the Stream and its natural surroundings.",
             ],
           },
-          imagen: foto("Recorrido por el exterior de la Casa", "Tour of the exterior of the House"),
+          imagen: foto("Recorrido por el exterior de la Casa", "Tour of the exterior of the House", "comision-servicio.jpg"),
         },
         {
           texto: {
@@ -181,7 +185,7 @@ const comisionDirectiva = {
               ],
             },
           ],
-          imagen: foto("Galería vidriada del interior de la Casa", "Glazed gallery inside the House"),
+          imagen: foto("Galería vidriada del interior de la Casa", "Glazed gallery inside the House", "comision-galeria.jpg"),
         },
       ],
     },
@@ -214,7 +218,7 @@ const comisionDirectiva = {
    ¿QUÉ ES UN MUSEO DE SITIO?
    ===================================================================== */
 const museoSitio = {
-  hero: foto("La Casa sobre el Arroyo y su bóveda sobre el arroyo", "The House over the Stream and its arch over the stream"),
+  hero: foto("La Casa sobre el Arroyo y su bóveda sobre el arroyo", "The House over the Stream and its arch over the stream", "museo-hero.jpg"),
   migas: [LA_CASA],
   titulo: { es: "¿Qué es un Museo de Sitio?", en: "What Is a Site Museum?" },
   subtitulo: {
@@ -233,7 +237,7 @@ const museoSitio = {
               "A site museum is a space devoted to the preservation, research, interpretation and promotion of cultural heritage in the very place where its history began or unfolded. Unlike traditional museums, which usually bring together collections and objects from different places, a site museum's main value lies in the bond between the heritage and its original setting. The building, the landscape, the spaces, the objects and the marks of time are all part of an experience that lets visitors understand history from the place where it happened.",
             ],
           },
-          imagen: foto("Galería vidriada del interior de la Casa", "Glazed gallery inside the House"),
+          imagen: foto("Galería vidriada del interior de la Casa", "Glazed gallery inside the House", "museo-galeria.jpg"),
         },
         {
           texto: {
@@ -266,7 +270,7 @@ const museoSitio = {
               "The House over the Stream, also known as the Casa del Puente (Bridge House), is a unique example of this museum concept. Located in Mar del Plata, it was designed by architects Amancio Williams and Delfina Gálvez Bunge and built between 1943 and 1945 as a home and studio for the composer Alberto Williams and his wife, Irma Paats. Considered one of the most important works of modern Argentine architecture, it is an innovative proposal that brings architecture, structure, landscape and nature together in an exceptional whole.",
             ],
           },
-          imagen: foto("La Casa entre la vegetación del parque", "The House among the park's vegetation"),
+          imagen: foto("La Casa entre la vegetación del parque", "The House among the park's vegetation", "museo-casa-vegetacion.jpg"),
         },
         {
           texto: {
@@ -277,7 +281,7 @@ const museoSitio = {
               "Its status as a site museum shows that its heritage value does not lie in the house alone. The reinforced concrete structure spanning the Las Chacras stream, the wooded park, the service pavilion, the paths, the views and the relationship between indoor and outdoor spaces are all part of a single architectural and landscape project. Each of these components helps explain its authors' original vision and the way they imagined a new relationship between people, architecture and the natural environment.",
             ],
           },
-          imagen: foto("Pabellón de servicio entre los árboles del parque", "Service pavilion among the park's trees"),
+          imagen: foto("Pabellón de servicio entre los árboles del parque", "Service pavilion among the park's trees", "museo-pabellon.jpg"),
         },
         {
           texto: {
@@ -320,6 +324,10 @@ const museoSitio = {
 /* =====================================================================
    INVESTIGACIONES E INTERVENCIONES
    ===================================================================== */
+// "Herman Clinckspoor" -> "herman-clinckspoor"
+const slug = (t) =>
+  t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, "-");
+
 const investigador = (nombre, lado, es, en, extra) => ({
   separar: true,
   titulo: { es: nombre, en: nombre },
@@ -327,7 +335,10 @@ const investigador = (nombre, lado, es, en, extra) => ({
     {
       lado,
       texto: { es, en },
-      imagen: lado === null ? undefined : foto(nombre, nombre),
+      imagen:
+        lado === null
+          ? undefined
+          : foto(nombre, nombre, slug(nombre) + ".jpg"),
     },
     ...(extra ? [{ texto: extra }] : []),
   ],
@@ -336,7 +347,8 @@ const investigador = (nombre, lado, es, en, extra) => ({
 const investigaciones = {
   hero: foto(
     "Plano de implantación de la Casa con trazados geométricos",
-    "Site plan of the House with geometric tracings"
+    "Site plan of the House with geometric tracings",
+    "investigaciones-plano.jpg"
   ),
   migas: [LA_CASA],
   titulo: { es: "Investigaciones e intervenciones", en: "Research and interventions" },

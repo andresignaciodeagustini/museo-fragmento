@@ -239,7 +239,7 @@ export default function Home() {
               <Tile
                 key={p.slug}
                 to="/historia/investigaciones"
-                img={fotoDe(p)}
+                img="/assets/paginas/investigaciones-plano.jpg"
                 title={t.nav.investigaciones}
               />
             ) : (
