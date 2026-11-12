@@ -8,20 +8,55 @@
 }
 
 /* ---------- Imagen principal ---------- */
+/* Alto de la cabecera: ~mitad de la pantalla, así al entrar ya se ven
+   el título y el comienzo del texto (no solo la foto). */
+.page {
+  --hero-h: clamp(240px, 50vh, 560px);
+}
 .hero {
   display: block;
   width: 100%;
-  aspect-ratio: 21 / 10;
-  max-height: 70vh;
+  height: var(--hero-h);
   object-fit: cover;
   object-position: center;
+}
+/* Foto que tiene que verse entera (por ejemplo, la maqueta sobre fondo negro):
+   no se recorta, se centra sobre negro. */
+.heroCompleta {
+  object-fit: contain;
+  background: #000;
+}
+/* Cabecera "difuminada": foto entera + costados con la misma foto desenfocada */
+.heroMarco {
+  position: relative;
+  height: var(--hero-h);
+  overflow: hidden;
+  background: #111;
+}
+.heroDifuminado {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(28px) brightness(0.85);
+  transform: scale(1.15); /* evita bordes claros por el desenfoque */
+}
+.heroEntera {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
 }
 .heroPendiente {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: clamp(240px, 50vh, 520px);
+  height: var(--hero-h);
   background: #d9d9d9;
   color: #6b6c70;
   font-size: 1rem;
@@ -29,8 +64,12 @@
   text-transform: uppercase;
 }
 
+/* Ancho máximo del contenido: en pantallas grandes no se estira de más */
 .wrap {
-  margin: 0 5vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  box-sizing: content-box;
 }
 
 /* ---------- Breadcrumb ---------- */
@@ -77,6 +116,7 @@
 }
 
 /* ---------- Secciones ---------- */
+/* Cada sección separada lleva línea arriba y aire parejo, como en la referencia */
 .seccion + .seccion {
   margin-top: 36px;
 }
@@ -97,11 +137,15 @@
 }
 
 /* ---------- Bloques texto + imagen ---------- */
+/* Texto un poco más ancho que la foto, como en la referencia */
 .bloque {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   align-items: start;
-  gap: clamp(24px, 4vw, 56px);
+  gap: clamp(20px, 3vw, 40px);
+}
+.imagenIzquierda {
+  grid-template-columns: 1fr 1.1fr;
 }
 .bloque + .bloque {
   margin-top: 28px;
@@ -114,9 +158,9 @@
 }
 
 .texto p {
-  margin: 0 0 1.1em;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  line-height: 1.55;
+  margin: 0 0 1em;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.5;
 }
 .texto p:last-child {
   margin-bottom: 0;
@@ -132,15 +176,23 @@
 .imagen img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   object-position: center 30%; /* prioriza caras en retratos */
+}
+/* Foto completa, sin recorte (retratos con formatos distintos).
+   No pasa de 440px de alto; se pega al borde exterior del bloque. */
+.entera img {
+  aspect-ratio: auto;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
 }
 .pendiente {
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   background: #e6e6e6;
   color: #6b6c70;
   font-size: 0.9rem;
@@ -174,10 +226,11 @@
 
 /* ---------- Mobile ---------- */
 @media (max-width: 760px) {
-  .hero {
-    aspect-ratio: 4 / 3;
+  .page {
+    --hero-h: clamp(200px, 38vh, 320px);
   }
-  .bloque {
+  .bloque,
+  .imagenIzquierda {
     grid-template-columns: 1fr;
   }
   .imagenIzquierda .imagen {

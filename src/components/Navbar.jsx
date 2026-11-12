@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext.jsx";
 import LanguageSwitch from "./LanguageSwitch.jsx";
@@ -52,6 +52,23 @@ function ArrowCircle() {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { t } = useLanguage();
+
+  // Desplegable abierto en escritorio (label del ítem, o null).
+  // Se cierra con una pequeña demora al sacar el cursor, para poder bajar
+  // hasta el panel sin que se esconda al cruzar la barra negra.
+  const [abierto, setAbierto] = useState(null);
+  const timerCierre = useRef(null);
+  const CIERRE_MS = 350;
+
+  const abrirMenu = (label) => {
+    clearTimeout(timerCierre.current);
+    setAbierto(label);
+  };
+  const cerrarConDemora = () => {
+    clearTimeout(timerCierre.current);
+    timerCierre.current = setTimeout(() => setAbierto(null), CIERRE_MS);
+  };
+  useEffect(() => () => clearTimeout(timerCierre.current), []);
 
   // Orden del menú: La Casa primero, después La Asociación.
   // "Agenda" ya no va en la barra: quedó como ítem dentro de "La Casa".
@@ -111,7 +128,11 @@ export default function Navbar() {
 
   // Al hacer clic en un ítem del panel se le saca el foco para que el
   // panel se cierre (si no, :focus-within lo mantendría abierto).
-  const blurOnClick = (e) => e.currentTarget.blur();
+  const blurOnClick = (e) => {
+    e.currentTarget.blur();
+    clearTimeout(timerCierre.current);
+    setAbierto(null);
+  };
 
   return (
     <header className="navbar">
@@ -133,7 +154,12 @@ export default function Navbar() {
         {/* Fila inferior: menú */}
         <nav className="navbar__main">
           {mainLinks.map((link) => (
-            <div key={link.label} className="navbar__item">
+            <div
+              key={link.label}
+              className={`navbar__item${abierto === link.label ? " is-open" : ""}`}
+              onMouseEnter={() => abrirMenu(link.label)}
+              onMouseLeave={cerrarConDemora}
+            >
               <Link
                 to={link.to}
                 className="navbar__link"

@@ -12,15 +12,21 @@ import styles from "./PaginaContenido.module.css";
 const PENDIENTE = { es: "Foto pendiente", en: "Photo pending" };
 const INICIO = { es: "Inicio", en: "Home" };
 
-function Imagen({ img, lang, className }) {
+// img.entera = true: la foto se ve completa, sin recorte (retratos).
+// Se pega al borde exterior según el lado del bloque.
+function Imagen({ img, lang, className, lado }) {
   if (img?.src) {
+    const posicion =
+      img.posicion ?? (img.entera ? (lado === "izquierda" ? "left top" : "right top") : undefined);
     return (
-      <figure className={`${styles.imagen} ${className ?? ""}`}>
+      <figure
+        className={`${styles.imagen} ${img.entera ? styles.entera : ""} ${className ?? ""}`}
+      >
         <img
           src={img.src}
           alt={img.alt?.[lang] ?? ""}
           loading="lazy"
-          style={img.posicion ? { objectPosition: img.posicion } : undefined}
+          style={posicion ? { objectPosition: posicion } : undefined}
         />
         {img.pie && <figcaption className={styles.pie}>{img.pie[lang]}</figcaption>}
       </figure>
@@ -74,7 +80,7 @@ function Bloque({ bloque, lang }) {
           <p className={styles.destacado}>{bloque.destacado[lang]}</p>
         )}
       </div>
-      {tieneImagen && <Imagen img={bloque.imagen} lang={lang} />}
+      {tieneImagen && <Imagen img={bloque.imagen} lang={lang} lado={bloque.lado} />}
     </div>
   );
 }
@@ -84,12 +90,26 @@ export default function PaginaContenido({ pagina }) {
 
   return (
     <article className={styles.page}>
-      {pagina.hero?.src ? (
+      {pagina.hero?.src && pagina.hero.fondo === "difuminado" ? (
+        // Foto entera al centro; los costados se rellenan con la misma
+        // foto desenfocada, así la cabecera ocupa todo el ancho sin recortar.
+        <div className={styles.heroMarco}>
+          <img className={styles.heroDifuminado} src={pagina.hero.src} alt="" aria-hidden="true" />
+          <img
+            className={styles.heroEntera}
+            src={pagina.hero.src}
+            alt={pagina.hero.alt?.[lang] ?? ""}
+          />
+        </div>
+      ) : pagina.hero?.src ? (
         <img
-          className={styles.hero}
+          className={`${styles.hero} ${pagina.hero.completa ? styles.heroCompleta : ""}`}
           src={pagina.hero.src}
           alt={pagina.hero.alt?.[lang] ?? ""}
-          style={pagina.hero.posicion ? { objectPosition: pagina.hero.posicion } : undefined}
+          style={{
+            ...(pagina.hero.posicion && { objectPosition: pagina.hero.posicion }),
+            ...(pagina.hero.fondo && { background: pagina.hero.fondo }),
+          }}
         />
       ) : (
         <div className={styles.heroPendiente} role="img" aria-label={PENDIENTE[lang]}>

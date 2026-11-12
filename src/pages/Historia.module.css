@@ -1,0 +1,161 @@
+/* Página Historia: cabecera con foto en tono sepia + tarjetas con foto */
+
+.page {
+  background: #f1ece4; /* crema */
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Cabecera ---------- */
+.hero {
+  position: relative;
+  height: clamp(240px, 40vh, 420px);
+  overflow: hidden;
+  background: #1b1915;
+}
+.heroFoto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  filter: grayscale(1) sepia(0.35) brightness(0.85) contrast(1.1);
+}
+/* Oscurece la izquierda para que el texto se lea */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 17, 13, 0.85) 0%,
+    rgba(20, 17, 13, 0.55) 40%,
+    rgba(20, 17, 13, 0) 75%
+  );
+}
+.heroTexto {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+.titulo {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.linea {
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 18px 0 20px;
+  background: #c8a27a; /* dorado suave */
+}
+.subtitulo {
+  margin: 0;
+  max-width: 34em;
+  font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ---------- Tarjetas ---------- */
+.grilla {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vh, 40px) 5vw clamp(32px, 6vh, 56px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.2vw, 18px);
+}
+.tarjeta {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #2a2723;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: grayscale(1) contrast(1.05);
+  transition: transform 0.4s ease;
+}
+.tarjeta:hover .foto,
+.tarjeta:focus-visible .foto {
+  transform: scale(1.04);
+}
+.tarjeta:focus-visible {
+  outline: 3px solid #c8a27a;
+  outline-offset: 3px;
+}
+
+/* Banda oscura inferior con título, rol y flecha */
+.banda {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 30%;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(24, 22, 19, 0.82);
+}
+.tarjetaTitulo {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.tarjetaSub {
+  margin: 4px 0 0;
+  font-size: clamp(0.8rem, 0.95vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.82);
+}
+.flecha {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  transition: transform 0.2s ease;
+}
+.tarjeta:hover .flecha {
+  transform: translateX(3px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .grilla {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .grilla {
+    grid-template-columns: 1fr;
+  }
+  .hero::after {
+    background: linear-gradient(
+      90deg,
+      rgba(20, 17, 13, 0.85) 0%,
+      rgba(20, 17, 13, 0.6) 100%
+    );
+  }
+}

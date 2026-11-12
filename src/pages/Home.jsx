@@ -8,12 +8,11 @@ import Carousel from "../components/Carousel.jsx";
 const SUMATE_PATH = "/asociacion/socios";
 
 // Orden en que aparecen las personalidades dentro de "La Casa"
-const ORDEN = ["alberto", "amancio", "delfina", "herman"];
+const ORDEN = ["alberto", "amancio", "delfina"];
 const FOTOS = {
   amancio: "/assets/home/amancio.jpg",
   delfina: "/assets/home/delfina.jfif",
   alberto: "/assets/home/alberto.png",
-  herman: "/assets/home/herman.png",
 };
 function fotoDe(p) {
   const clave = ORDEN.find((o) => p.nombre.toLowerCase().includes(o));
@@ -233,25 +232,20 @@ export default function Home() {
             title={t.casa.galeria.titulo}
             sub={t.casa.galeria.sub}
           />
-          {lista.map((p) =>
-            // Herman Clinckspoor: la tarjeta lleva a "Investigaciones e Intervenciones"
-            p.slug === "herman-clinckspoor" ? (
-              <Tile
-                key={p.slug}
-                to="/historia/investigaciones"
-                img="/assets/paginas/investigaciones-plano.jpg"
-                title={t.nav.investigaciones}
-              />
-            ) : (
-              <Tile
-                key={p.slug}
-                to={`/historia/${p.slug}`}
-                img={fotoDe(p)}
-                title={p.nombre}
-                sub={p.rol[lang]}
-              />
-            )
-          )}
+          {lista.map((p) => (
+            <Tile
+              key={p.slug}
+              to={`/historia/${p.slug}`}
+              img={fotoDe(p)}
+              title={p.nombre}
+              sub={p.rol[lang]}
+            />
+          ))}
+          <Tile
+            to="/historia/investigaciones"
+            img="/assets/paginas/investigaciones-plano.jpg"
+            title={t.nav.investigaciones}
+          />
         </div>
       </section>
 

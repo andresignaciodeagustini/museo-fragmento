@@ -17,20 +17,6 @@ const personas = [
     },
   },
   {
-    slug: "herman-clinckspoor",
-    nombre: "Herman Clinckspoor",
-    años: "",
-    foto: "",
-    rol: {
-      es: "Investigaciones",
-      en: "Research",
-    },
-    texto: {
-      es: "Contenido pendiente.",
-      en: "Content coming soon.",
-    },
-  },
-  {
     slug: "delfina-galvez-bunge",
     nombre: "Delfina Gálvez Bunge",
     años: "",

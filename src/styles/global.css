@@ -122,7 +122,7 @@ img { max-width: 100%; display: block; }
   color: #fff;
   transition: transform 0.2s;
 }
-.navbar__item:hover .chevron,
+.navbar__item.is-open .chevron,
 .navbar__item:focus-within .chevron {
   transform: rotate(180deg);
 }
@@ -138,7 +138,9 @@ img { max-width: 100%; display: block; }
   background: #000;
   border-top: 1px solid #333;
 }
-.navbar__item:hover .navbar__dropdown,
+/* Se abre por la clase .is-open (la maneja Navbar.jsx con una demora
+   al cerrar) o con el teclado (:focus-within). */
+.navbar__item.is-open .navbar__dropdown,
 .navbar__item:focus-within .navbar__dropdown {
   display: block;
 }

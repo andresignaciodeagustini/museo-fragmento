@@ -66,6 +66,8 @@ export default function App() {
           ))}
 
           {/* Va al final: las rutas fijas de /historia/... tienen prioridad */}
+          {/* Herman Clinckspoor ahora está en Investigaciones e intervenciones */}
+          <Route path="/historia/herman-clinckspoor" element={<Navigate to="/historia/investigaciones" replace />} />
           <Route path="/historia/:slug" element={<Persona />} />
         </Routes>
       </main>

@@ -111,7 +111,10 @@ const quienesSomos = {
    COMISIÓN DIRECTIVA
    ===================================================================== */
 const comisionDirectiva = {
-  hero: foto("Maqueta del conjunto Casa sobre el Arroyo", "Model of the House over the Stream ensemble", "comision-hero.jpg"),
+  hero: {
+    ...foto("Maqueta del conjunto Casa sobre el Arroyo", "Model of the House over the Stream ensemble", "comision-hero.jpg"),
+    completa: true, // la maqueta se ve entera, sin recortar
+  },
   migas: [QUIENES],
   titulo: { es: "Comisión Directiva", en: "Board of Directors" },
   subtitulo: {
@@ -218,7 +221,10 @@ const comisionDirectiva = {
    ¿QUÉ ES UN MUSEO DE SITIO?
    ===================================================================== */
 const museoSitio = {
-  hero: foto("La Casa sobre el Arroyo y su bóveda sobre el arroyo", "The House over the Stream and its arch over the stream", "museo-hero.jpg"),
+  hero: {
+    ...foto("La Casa sobre el Arroyo y su bóveda sobre el arroyo", "The House over the Stream and its arch over the stream", "museo-hero-casa.jpg"),
+    posicion: "center 45%", // casa completa: techo y arco
+  },
   migas: [LA_CASA],
   titulo: { es: "¿Qué es un Museo de Sitio?", en: "What Is a Site Museum?" },
   subtitulo: {
@@ -270,7 +276,7 @@ const museoSitio = {
               "The House over the Stream, also known as the Casa del Puente (Bridge House), is a unique example of this museum concept. Located in Mar del Plata, it was designed by architects Amancio Williams and Delfina Gálvez Bunge and built between 1943 and 1945 as a home and studio for the composer Alberto Williams and his wife, Irma Paats. Considered one of the most important works of modern Argentine architecture, it is an innovative proposal that brings architecture, structure, landscape and nature together in an exceptional whole.",
             ],
           },
-          imagen: foto("La Casa entre la vegetación del parque", "The House among the park's vegetation", "museo-casa-vegetacion.jpg"),
+          imagen: { ...foto("La Casa entre la vegetación del parque", "The House among the park's vegetation", "museo-casa-vegetacion.jpg"), posicion: "center 70%" },
         },
         {
           texto: {
@@ -281,7 +287,7 @@ const museoSitio = {
               "Its status as a site museum shows that its heritage value does not lie in the house alone. The reinforced concrete structure spanning the Las Chacras stream, the wooded park, the service pavilion, the paths, the views and the relationship between indoor and outdoor spaces are all part of a single architectural and landscape project. Each of these components helps explain its authors' original vision and the way they imagined a new relationship between people, architecture and the natural environment.",
             ],
           },
-          imagen: foto("Pabellón de servicio entre los árboles del parque", "Service pavilion among the park's trees", "museo-pabellon.jpg"),
+          imagen: { ...foto("Pabellón de servicio entre los árboles del parque", "Service pavilion among the park's trees", "museo-pabellon.jpg"), posicion: "center 80%" },
         },
         {
           texto: {
@@ -338,18 +344,21 @@ const investigador = (nombre, lado, es, en, extra) => ({
       imagen:
         lado === null
           ? undefined
-          : foto(nombre, nombre, slug(nombre) + ".jpg"),
+          : { ...foto(nombre, nombre, slug(nombre) + ".jpg"), entera: true },
     },
     ...(extra ? [{ texto: extra }] : []),
   ],
 });
 
 const investigaciones = {
-  hero: foto(
-    "Plano de implantación de la Casa con trazados geométricos",
-    "Site plan of the House with geometric tracings",
-    "investigaciones-plano.jpg"
-  ),
+  hero: {
+    ...foto(
+      "Plano de implantación de la Casa con trazados geométricos",
+      "Site plan of the House with geometric tracings",
+      "investigaciones-plano.jpg"
+    ),
+    posicion: "center 62%", // centrado en los círculos verdes y la casa
+  },
   migas: [LA_CASA],
   titulo: { es: "Investigaciones e intervenciones", en: "Research and interventions" },
   secciones: [
